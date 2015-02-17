@@ -75,13 +75,19 @@ while choice != "no":
         messagebox.showinfo("Your health", "Your health is now at {}." .format(HP))
 
 
+
+    if HP <= 0 and enemyhp <=0:
+        messagebox.showinfo("Dead", "You killed the bear but his final blow made you bleed out and die.")
+        break
+
     if enemyhp <= 0:
         messagebox.showinfo("Enemy Killed", "You have defeated the bear!")
         break
+
     elif HP <= 0 or choice =="no":
         messagebox.showinfo("You have died", "You died, RIP")
         break
-        root.destroy()
+
 
 
 
@@ -123,7 +129,7 @@ while choice2 != "no":
     elif HP <= 0 or choice2 =="no":
         messagebox.showinfo("You have died", "As you take your final breath you see the bandito take your sword and backpack, RIP.")
         break
-        root.destroy()
+
 
 
 
