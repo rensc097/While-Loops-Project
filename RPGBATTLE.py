@@ -87,6 +87,8 @@ while choice != "no":
 
     elif HP <= 0 or choice =="no":
         messagebox.showinfo("You have died", "You died, RIP")
+        choice == "no"
+        
         break
 
 
@@ -128,6 +130,7 @@ while choice2 != "no":
         messagebox.showinfo("Enemy Killed", "Before the bandito dies he tells you that he was only looking for food for his children.")
         break
     elif HP <= 0 or choice2 =="no":
+        choice2 =="no"
         messagebox.showinfo("You have died", "As you take your final breath you see the bandito take your sword and backpack, RIP.")
         break
 
