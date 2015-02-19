@@ -66,7 +66,7 @@ messagebox.showinfo("START!","You enter a dark damp cave for shelter in the nigh
 
 choice = None
 while choice != "no":
-    choice = simpledialog.askstring("Fight?", "Do you want to attack? Yes or no?")
+    choice = simpledialog.askstring("Fight?", "Do you want to attack? yes or no?")
     if choice == "yes" or "y":
         enemyhp -= attackdmg
     if choice == "yes" or "y" :
@@ -85,9 +85,9 @@ while choice != "no":
         messagebox.showinfo("Enemy Killed", "You have defeated the bear!")
         break
 
-    elif HP <= 0 or choice =="no":
+    if HP <= 0 or choice =="no":
         messagebox.showinfo("You have died", "You died, RIP")
-        choice == "no"
+        
         
         break
 
@@ -129,8 +129,8 @@ while choice2 != "no":
     if enemyhp2 <= 0:
         messagebox.showinfo("Enemy Killed", "Before the bandito dies he tells you that he was only looking for food for his children.")
         break
-    elif HP <= 0 or choice2 =="no":
-        choice2 =="no"
+    if HP <= 0 or choice2 =="no":
+        
         messagebox.showinfo("You have died", "As you take your final breath you see the bandito take your sword and backpack, RIP.")
         break
 
