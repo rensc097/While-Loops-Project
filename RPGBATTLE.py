@@ -13,6 +13,7 @@ w.pack()
 
 
 
+
 messagebox.showinfo("RPG BATTLE", "This RPG game will let you name your hero, randomly generate his or her stats, and let you battle enemies")
 
 #varibles
@@ -48,7 +49,7 @@ if strength >= 8:
     messagebox.showinfo("Attack Increase", "Your  very high strength made your attack better again. Your attack is now: {}." .format(attackdmg))
 if agility <= 4 :
     enemydmg += 3
-    messagebox.showinfo("Low Agility", "Due to low agility you will take 3 more damage every hit.") 
+    messagebox.showinfo("Low Agility", "Due to low agility you will take 3 more damage every hit.")
 if agility >= 6 :
     enemydmg -= 1
     messagebox.showinfo("Average Agility", "Your average agility allows you to take one less damage per hit")
@@ -65,10 +66,10 @@ messagebox.showinfo("START!","You enter a dark damp cave for shelter in the nigh
 
 choice = None
 while choice != "no":
-    choice = simpledialog.askstring("Fight?", "Do you want to attack?")
-    if choice == "yes":
+    choice = simpledialog.askstring("Fight?", "Do you want to attack? Yes or no?")
+    if choice == "yes" or "y":
         enemyhp -= attackdmg
-    if choice == "yes":
+    if choice == "yes" or "y" :
         HP -= enemydmg
         messagebox.showinfo("Enemy Health", "The enemy now has {} HP." .format(enemyhp))
         messagebox.showinfo("Enemy Attack", "Your enemy has attacked you for {} HP.".format(enemydmg))
@@ -113,10 +114,10 @@ if choice == "yes" or HP > 0:
 
 choice2 = None
 while choice2 != "no":
-    choice2 = simpledialog.askstring("Fight?", "Do you want to attack?")
-    if choice2 == "yes":
+    choice2 = simpledialog.askstring("Fight?", "Do you want to attack? Yes or no?")
+    if choice2 == "yes" or "y":
         enemyhp2 -= attackdmg
-    if choice2 == "yes":
+    if choice2 == "yes" or "y":
         HP -= enemydmg2
         messagebox.showinfo("Enemy Health", "The enemy now has {} HP." .format(enemyhp2))
         messagebox.showinfo("Enemy Attack", "Your enemy has attacked you for {} HP.".format(enemydmg2))
