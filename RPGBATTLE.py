@@ -14,7 +14,7 @@ w.pack()
 
 
 
-messagebox.showinfo("RPG BATTLE", "This RPG game will let you name your hero, randomly generate his or her stats, and let you battle enemies")
+messagebox.showinfo("RPG BATTLE", "This RPG game will let you name your hero, randomly generate his or her stats, and let you battle some banditos")
 
 #varibles
 player = simpledialog.askstring("What is your name?", "Name your hero")
@@ -27,10 +27,15 @@ agility = random.randint(1 , 10)
 
 wisdom = random.randint(1 , 5)
 
-enemyhp = random.randint(50,100)
+enemyhp = random.randint(50,70)
 enemystrength = random.randint(1,10)
 attackdmg = random.randint(1,20)
 enemydmg = random.randint(1,20)
+enemyhp2 = random.randint(40,100)
+enemystrength2 = random.randint(1,10)
+enemydmg2 = random.randint(5,20)
+
+
 
 #show player info
 messagebox.showinfo ("Player Name", " Your name is {}." .format(player))
@@ -61,44 +66,6 @@ if wisdom >= 4:
     messagebox.showinfo("High Wisdom", "You have high Wisdom so you'll get 10 extra HP")
 if enemystrength >= 6:
     enemydmg += 3
-#fighting
-messagebox.showinfo("START!","You enter a dark damp cave for shelter in the night. A giant Grizzly Bear is sleeping in the cave, with {} health!. Time to fight!".format(enemyhp))
-
-choice = None
-while choice != "no":
-    choice = simpledialog.askstring("Fight?", "Do you want to attack? yes or no?")
-    if choice == "yes" or "y":
-        enemyhp -= attackdmg
-    if choice == "yes" or "y" :
-        HP -= enemydmg
-        messagebox.showinfo("Enemy Health", "The enemy now has {} HP." .format(enemyhp))
-        messagebox.showinfo("Enemy Attack", "Your enemy has attacked you for {} HP.".format(enemydmg))
-        messagebox.showinfo("Your health", "Your health is now at {}." .format(HP))
-
-
-
-    if HP <= 0 and enemyhp <=0:
-        messagebox.showinfo("Dead", "You killed the bear but his final blow made you bleed out and die.")
-        break
-
-    if enemyhp <= 0:
-        messagebox.showinfo("Enemy Killed", "You have defeated the bear!")
-        break
-
-    if HP <= 0 or choice =="no":
-        messagebox.showinfo("You have died", "You died, RIP")
-        
-        
-        break
-
-
-
-
-#2nd fight varibles
-enemyhp2 = random.randint(50,100)
-enemystrength2 = random.randint(1,10)
-enemydmg2 = random.randint(1,20)
-
 if enemystrength2 >= 6:
     enemydmg2 += 3
 if agility <= 4 :
@@ -108,31 +75,49 @@ if agility >= 6 :
 if agility >= 8 :
     enemydmg -= 4
 
+#fighting
+messagebox.showinfo("START!","You are travelling on the road and a gang of two bandits jump out and try and rob you! You know you can take them."
+                             " You can tell from your excellent perception that one bandit has {} HP and the second one has {}!"
+                             " Time to fight!".format(enemyhp, enemyhp2))
 
-#2nd fight
-if choice == "yes" or HP > 0:
-    messagebox.showinfo("Fight 2",
-                    "You spend the night in the cave and when you wake up a bandito is rummaging through your stuff!")
-
-choice2 = None
-while choice2 != "no":
-    choice2 = simpledialog.askstring("Fight?", "Do you want to attack? Yes or no?")
-    if choice2 == "yes" or "y":
+choice = None
+while choice != "no":
+    choice = simpledialog.askstring("Fight?", "Do you want to attack? yes or no?")
+    if choice == "yes" or "y":
+        enemyhp -= attackdmg
         enemyhp2 -= attackdmg
-    if choice2 == "yes" or "y":
-        HP -= enemydmg2
-        messagebox.showinfo("Enemy Health", "The enemy now has {} HP." .format(enemyhp2))
-        messagebox.showinfo("Enemy Attack", "Your enemy has attacked you for {} HP.".format(enemydmg2))
+    if choice == "yes" or "y" :
+        HP -= enemydmg and enemydmg2
+        messagebox.showinfo("Enemy Health", "The enemy now has {} HP. Enemy 2 has {}" .format(enemyhp, enemyhp2))
+        messagebox.showinfo("Enemy Attack", "Your enemy has attacked you for {} HP. Enemy 2 attacked you for {} HP".format(enemydmg, enemydmg2))
         messagebox.showinfo("Your health", "Your health is now at {}." .format(HP))
 
 
+    if enemyhp <= 0:
+        enemydmg -= enemydmg
     if enemyhp2 <= 0:
-        messagebox.showinfo("Enemy Killed", "Before the bandito dies he tells you that he was only looking for food for his children.")
+        enemydmg2 -= enemydmg2
+
+
+
+    if HP <= 0 and enemyhp <=0:
+        messagebox.showinfo("Dead", "You killed the bandits but their final blow made you bleed out and die.")
         break
-    if HP <= 0 or choice2 =="no":
+
+    if enemyhp <= 0 and enemyhp2 <= 0:
+        messagebox.showinfo("Enemies Killed", "You have defeated the bandits!"
+                                              " Great job {} is now wanted for murder because the bandits were homeless people begging for food not robbers and this isn't medieval Europe,you can't just kill people...".format(player))
+
+        break
+
+    if HP <= 0 or choice =="no":
+        messagebox.showinfo("{} is dead".format(player), "You greatly underestimated the bandits and they killed you. What were you thinking?".format(player))
         
-        messagebox.showinfo("You have died", "As you take your final breath you see the bandito take your sword and backpack, RIP.")
+        
         break
+
+
+
 
 
 
